@@ -1,3 +1,19 @@
-<app-navbar></app-navbar>
+<mat-toolbar class="mat-elevation-z1">
+    <p>Jobs</p>
+
+    <span class="spacer"></span>
+
+    <button mat-button class="mr_1" [routerLink]="'/ofertas-laborales'">
+        Ofertas laborales
+    </button>
+
+    <button mat-button class="mr_1">
+        Trabajos
+    </button>
+
+    <button mat-button>
+        Iniciar sesión
+    </button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServicesModule } from './modules/services.module';
 import { MaterialModule } from './modules/material.module';
-import { StatelessComponentsModule } from './modules/stateless-components.module';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { StatelessComponentsModule } from './modules/stateless-components.module
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
     ServicesModule,
-    StatelessComponentsModule,
     MaterialModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
