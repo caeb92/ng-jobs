@@ -12,7 +12,11 @@ $ng-jobs-theme: mat.define-light-theme((
     primary: $ng-jobs-primary,
     accent: $ng-jobs-accent,
     warn: $ng-jobs-warn,
-  )
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Poppins',
+  ),
+  density: 0,
 ));
 
 

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServicesModule } from './modules/services.module';
 import { MaterialModule } from './modules/material.module';
+import { StatelessComponentsModule } from './modules/stateless-components.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MaterialModule } from './modules/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ServicesModule,
+    StatelessComponentsModule,
     MaterialModule,
   ],
   providers: [],
