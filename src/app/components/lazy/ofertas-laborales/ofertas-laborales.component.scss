@@ -1,0 +1,50 @@
+.ofertas_laborales_container {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    .oferta {
+        border-radius: 3px;
+        width: 100%;
+        display: flex;
+        padding: 8px;
+        background-color: #FFF;
+
+        .company_logo {
+            margin-right: 16px;
+            width: 68px;
+            vertical-align: middle;
+            
+            img {
+                height: 64px;
+                width: 64px;
+                margin: auto auto;
+                display: block;
+            }
+        }
+
+        .company_name {
+            font-weight: 300;
+            font-size: 13px;
+            margin: 0px;
+        }
+
+        .title {
+            font-weight: 400;
+            font-size: 18px;
+            margin: 0px;
+        }
+
+        .description {
+            font-weight: 300;
+            font-size: 13px;
+            margin: 0px;
+        }
+
+        .benefits {
+            display: flex;
+        }
+    }
+    
+
+}

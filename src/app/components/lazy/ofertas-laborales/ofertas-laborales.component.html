@@ -1,6 +1,25 @@
-<p>ofertas laborales</p>
+<div class="ofertas_laborales_container">
+    <h1 class="app_titles">Ofertas Laborales</h1>
 
+    <div class="oferta mat-elevation-z1" *ngFor="let o of ofertasLaborales">
+        <div class="company_logo">
+            <img [src]="o.empresa.logo">
+        </div>
 
-<pre>
+        <div>
+            <p class="company_name">{{o.empresa.nombre}}</p>
+            <p class="title">{{o.titulo | titlecase }}</p>
+            <p class="description">{{o.descripcionCorta}}</p>
+        </div>
+
+        <span class="spacer"></span>
+
+        <div class="benefits">
+            <p>beneficios</p>
+        </div>
+    </div>
+</div>
+
+<!-- <pre>
     {{ofertasLaborales | json}}
-</pre>
+</pre> -->

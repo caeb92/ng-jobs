@@ -7,6 +7,7 @@ import { Tag } from "./tag.model";
 export interface OfertaLaboral {
     id?: number;
     titulo: string;
+    descripcion: string;
     descripcionCorta: string;
     sueldoMin: number;
     sueldoMax: number;
