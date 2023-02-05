@@ -130,3 +130,11 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.no_results_found {
+  margin-top: 32px;
+  text-align: center;
+  p {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+}

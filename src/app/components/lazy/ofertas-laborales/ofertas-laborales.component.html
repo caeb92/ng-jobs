@@ -1,6 +1,53 @@
 <div class="ofertas_laborales_container">
     <h1 class="app_titles">Ofertas Laborales</h1>
 
+    <!-- FILTROS -->
+    <div class="filtros" *ngIf="filters">
+      <form [formGroup]="form">
+
+        <!-- EMPRESAS -->
+        <mat-form-field class="mr_2">
+            <mat-label>Empresas</mat-label>
+            <mat-select matInput type="number" formControlName="empresas" multiple>
+                <mat-option *ngFor="let v of filters.empresas" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- EMPRESAS -->
+        <mat-form-field class="mr_2">
+            <mat-label>Tags</mat-label>
+            <mat-select matInput type="number" formControlName="tags" multiple>
+                <mat-option *ngFor="let v of filters.tags" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- EMPRESAS -->
+        <mat-form-field class="mr_2">
+            <mat-label>Categorías</mat-label>
+            <mat-select matInput type="number" formControlName="categorias" multiple>
+                <mat-option *ngFor="let v of filters.categorias" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- EMPRESAS -->
+        <mat-form-field class="mr_2">
+            <mat-label>Regiones</mat-label>
+            <mat-select matInput type="number" formControlName="regiones" multiple>
+                <mat-option *ngFor="let v of filters.regiones" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- EMPRESAS -->
+        <mat-form-field>
+            <mat-label>Comunas</mat-label>
+            <mat-select matInput type="number" formControlName="comunas" multiple>
+                <mat-option *ngFor="let v of filters.comunas" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <!-- LISTADO DE OFERTAS -->
     <div class="oferta mat-elevation-z1" *ngFor="let o of ofertasLaborales">
         <div class="company_logo">
             <img [src]="o.empresa.logo">
@@ -18,8 +65,17 @@
             <p>beneficios</p>
         </div>
     </div>
+    
+
+    <!-- PAGINADOR -->
+    <div class="bottom_paginator" *ngIf="ofertasLaborales.length > 0">
+        <mat-paginator color="accent" [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 20, 30]" aria-label="Seleccionar página"></mat-paginator>
+    </div>
+
 </div>
 
-<!-- <pre>
-    {{ofertasLaborales | json}}
-</pre> -->
+
+<div class="no_results_found" *ngIf="ofertasLaborales.length === 0">    
+    <img height="300px" src="assets/ilustration_2.png" alt="Sin resultados">
+    <p>No encontramos resultados <br> Intenta con otros filtros</p>
+</div>

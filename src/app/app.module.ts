@@ -7,6 +7,9 @@ import { ServicesModule } from './modules/services.module';
 import { MaterialModule } from './modules/material.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorIntlService } from './services/mat-paginator-intl.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,19 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatPaginatorIntl,
+      useClass: MatPaginatorIntlService
+    },
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'fill',
+        color: 'accent',        
+      }
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
