@@ -1,5 +1,7 @@
 <div class="ofertas_laborales_container">
-    <h1 class="app_titles">Ofertas Laborales</h1>
+    <h1 class="app_titles">
+        Ofertas Laborales
+    </h1>
 
     <!-- FILTROS -->
     <div class="filtros" *ngIf="filters">
@@ -68,14 +70,21 @@
     
 
     <!-- PAGINADOR -->
-    <div class="bottom_paginator" *ngIf="ofertasLaborales.length > 0">
-        <mat-paginator color="accent" [length]="100" [pageSize]="10" [pageSizeOptions]="[10, 20, 30]" aria-label="Seleccionar página"></mat-paginator>
+    <div class="bottom_paginator" *ngIf="ofertasLaborales && ofertasLaborales.length > 0">
+        <mat-paginator color="accent"
+            [length]="paginationData.totalPages"
+            [pageSize]="paginationData.itemsPerPage"
+            [pageIndex]="paginationData.currentPage"
+            [pageSizeOptions]="[10, 20, 30]"
+            (page)="pageEvent = filtrarOfertasLaborales($event)"
+            aria-label="Seleccionar página"
+        ></mat-paginator>
     </div>
 
 </div>
 
 
-<div class="no_results_found" *ngIf="ofertasLaborales.length === 0">    
+<div class="no_results_found" *ngIf="ofertasLaborales && ofertasLaborales.length === 0">    
     <img height="300px" src="assets/ilustration_2.png" alt="Sin resultados">
     <p>No encontramos resultados <br> Intenta con otros filtros</p>
 </div>

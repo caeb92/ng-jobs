@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { FiltrosOfertasLaborales } from 'src/app/models/filtros-ofertas-laborales.model';
 import { OfertaLaboral } from 'src/app/models/oferta-laboral.model';
+import { PaginationMetadata } from 'src/app/models/pagination-metadata.model';
 import { OfertasLaboralesService } from 'src/app/services/ofertas-laborales.service';
 
 @Component({
@@ -15,12 +17,15 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
   ofertasLaborales!: OfertaLaboral[];
   form!: FormGroup;
   filters!: FiltrosOfertasLaborales;
-
+  paginationData!: PaginationMetadata;
+  pageEvent!: PageEvent | undefined;
+  
   constructor(private ofertasLaboralesService: OfertasLaboralesService) {}
   
   obtenerOfertas(): void {
-    const sub = this.ofertasLaboralesService.obtenerOfertas({}).subscribe(ol => {
-      this.ofertasLaborales = ol;
+    const sub = this.ofertasLaboralesService.obtenerOfertas({}).subscribe(response => {
+      this.ofertasLaborales = response.items;
+      this.paginationData = response.meta;
     });
 
     this.subcriptions.push(sub);
@@ -29,10 +34,12 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
   obtenerFiltros(): void {
     const sub = this.ofertasLaboralesService.obtenerFiltros().subscribe(filtros => {
       this.filters = filtros;
-    })
+    });
+
+    this.subcriptions.push(sub);
   }
 
-  filtrarOfertasLaborales():void {
+  filtrarOfertasLaborales(event: PageEvent | undefined) {
     const fc = this.form.controls;
     const u = undefined;
 
@@ -42,13 +49,18 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
       empresas: fc['empresas'].value || u,
       regiones: fc['regiones'].value || u,
       tags: fc['tags'].value || u,
+      limit: event?.pageSize,
+      page: event?.pageIndex,
     };
 
-    const sub = this.ofertasLaboralesService.obtenerOfertas(filtersData).subscribe(ofertasLaborales => {
-      this.ofertasLaborales = ofertasLaborales;
+    const sub = this.ofertasLaboralesService.obtenerOfertas(filtersData).subscribe(response => {
+      this.ofertasLaborales = response.items;
+      this.paginationData = response.meta;
     });
 
     this.subcriptions.push(sub);
+
+    return event;
   }
 
   initForm(): void {
@@ -61,7 +73,7 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
     });
 
     this.form.valueChanges.subscribe(() => {
-      this.filtrarOfertasLaborales();
+      this.filtrarOfertasLaborales(undefined);
     });
   }
 

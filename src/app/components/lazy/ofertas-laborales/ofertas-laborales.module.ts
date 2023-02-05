@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/modules/material.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     OfertasLaboralesRoutingModule,
     ReactiveFormsModule,
+    MaterialModule,
     MatFormFieldModule,
     MatSelectModule,
     MatPaginatorModule,

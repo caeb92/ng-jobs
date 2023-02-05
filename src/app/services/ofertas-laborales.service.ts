@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { FiltrosOfertasLaborales } from '../models/filtros-ofertas-laborales.model';
+import { RespuestaFiltroOfertasLaborales } from '../models/respuesta-filtro-ofertas-laborales.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class OfertasLaboralesService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerOfertas(data: any): Observable<any> {
+  obtenerOfertas(data: any): Observable<RespuestaFiltroOfertasLaborales> {
     const body = JSON.parse(JSON.stringify(data));
     const params = new HttpParams({ fromObject: body });
 
-    return this.http.get<any>(`${environment.apiUrl}oferta-laboral`, { params }).pipe(
+    return this.http.get<RespuestaFiltroOfertasLaborales>(`${environment.apiUrl}oferta-laboral`, { params }).pipe(
       map(response => response)
     );
   }

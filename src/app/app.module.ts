@@ -4,16 +4,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServicesModule } from './modules/services.module';
-import { MaterialModule } from './modules/material.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MatPaginatorIntlService } from './services/mat-paginator-intl.service';
+import { FooterComponent } from './components/stateless/footer/footer.component';
+import { MaterialModule } from './modules/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -21,8 +23,8 @@ import { MatPaginatorIntlService } from './services/mat-paginator-intl.service';
     BrowserAnimationsModule,
     RouterModule,
     ServicesModule,
-    MaterialModule,
     HttpClientModule,
+    MaterialModule,
   ],
   providers: [
     {
