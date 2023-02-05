@@ -73,9 +73,9 @@
     <div class="bottom_paginator" *ngIf="ofertasLaborales && ofertasLaborales.length > 0">
         <mat-paginator color="accent"
             [length]="paginationData.totalPages"
-            [pageSize]="paginationData.itemsPerPage"
+            [pageSize]="paginationData.itemCount"
             [pageIndex]="paginationData.currentPage"
-            [pageSizeOptions]="[10, 20, 30]"
+            [pageSizeOptions]="[1,2,10, 20, 30]"
             (page)="pageEvent = filtrarOfertasLaborales($event)"
             aria-label="Seleccionar página"
         ></mat-paginator>

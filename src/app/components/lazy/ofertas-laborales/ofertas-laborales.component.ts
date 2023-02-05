@@ -50,7 +50,7 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
       regiones: fc['regiones'].value || u,
       tags: fc['tags'].value || u,
       limit: event?.pageSize,
-      page: event?.pageIndex,
+      page: event ? event.pageIndex+1: 1 ,
     };
 
     const sub = this.ofertasLaboralesService.obtenerOfertas(filtersData).subscribe(response => {
