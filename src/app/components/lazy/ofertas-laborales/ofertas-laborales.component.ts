@@ -49,6 +49,7 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
       empresas: fc['empresas'].value || u,
       regiones: fc['regiones'].value || u,
       tags: fc['tags'].value || u,
+      modalidades: fc['modalidades'].value || u,
       limit: event?.pageSize,
       page: event ? event.pageIndex+1: 1 ,
     };
@@ -70,6 +71,7 @@ export class OfertasLaboralesComponent implements OnInit, OnDestroy {
       empresas: new FormControl(),
       regiones: new FormControl(),
       tags: new FormControl(),
+      modalidades: new FormControl(),
     });
 
     this.form.valueChanges.subscribe(() => {

@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/modules/material.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MaterialModule } from 'src/app/modules/material.module';
     MatSelectModule,
     MatPaginatorModule,
     MatInputModule,
+    MatTooltipModule
   ]
 })
 export class OfertasLaboralesModule { }

@@ -7,15 +7,23 @@
     <div class="filtros" *ngIf="filters">
       <form [formGroup]="form">
 
-        <!-- EMPRESAS -->
+        <!-- Empresas -->
         <mat-form-field class="mr_2">
             <mat-label>Empresas</mat-label>
             <mat-select matInput type="number" formControlName="empresas" multiple>
-                <mat-option *ngFor="let v of filters.empresas" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+                <mat-option *ngFor="let v of filters.empresas" [value]="v.id">{{v.nombre}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <!-- EMPRESAS -->
+        <!-- Modalidades -->
+        <mat-form-field class="mr_2">
+            <mat-label>Modalidades</mat-label>
+            <mat-select matInput type="number" formControlName="modalidades" multiple>
+                <mat-option *ngFor="let v of filters.modalidades" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Tags -->
         <mat-form-field class="mr_2">
             <mat-label>Tags</mat-label>
             <mat-select matInput type="number" formControlName="tags" multiple>
@@ -23,25 +31,25 @@
             </mat-select>
         </mat-form-field>
 
-        <!-- EMPRESAS -->
-        <mat-form-field class="mr_2">
+        <!-- Categorías -->
+        <mat-form-field class="mr_2" style="width: 320px;">
             <mat-label>Categorías</mat-label>
             <mat-select matInput type="number" formControlName="categorias" multiple>
                 <mat-option *ngFor="let v of filters.categorias" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <!-- EMPRESAS -->
+        <!-- Regiones -->
         <mat-form-field class="mr_2">
-            <mat-label>Regiones</mat-label>
+            <mat-label>Región</mat-label>
             <mat-select matInput type="number" formControlName="regiones" multiple>
                 <mat-option *ngFor="let v of filters.regiones" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-        <!-- EMPRESAS -->
+        <!-- Comunas -->
         <mat-form-field>
-            <mat-label>Comunas</mat-label>
+            <mat-label>Comuna</mat-label>
             <mat-select matInput type="number" formControlName="comunas" multiple>
                 <mat-option *ngFor="let v of filters.comunas" [value]="v.id">{{v.nombre | titlecase}}</mat-option>
             </mat-select>
@@ -57,14 +65,14 @@
 
         <div>
             <p class="company_name">{{o.empresa.nombre}}</p>
-            <p class="title">{{o.titulo | titlecase }}</p>
+            <p class="title">{{o.titulo | titlecase }} <span class="modalidades">{{o.modalidades[0].nombre | titlecase}}</span></p>
             <p class="description">{{o.descripcionCorta}}</p>
         </div>
 
         <span class="spacer"></span>
 
-        <div class="benefits">
-            <p>beneficios</p>
+        <div class="benefits" *ngFor="let b of o.beneficios">
+            <img [src]="'assets/icons/'+b.imagen" matTooltip="{{b.nombre}}">
         </div>
     </div>
     
@@ -73,9 +81,8 @@
     <div class="bottom_paginator" *ngIf="ofertasLaborales && ofertasLaborales.length > 0">
         <mat-paginator color="accent"
             [length]="paginationData.totalPages"
-            [pageSize]="paginationData.itemCount"
-            [pageIndex]="paginationData.currentPage"
-            [pageSizeOptions]="[1,2,10, 20, 30]"
+            [pageSize]="paginationData.itemsPerPage"
+            [pageSizeOptions]="[1, 10, 20, 30]"
             (page)="pageEvent = filtrarOfertasLaborales($event)"
             aria-label="Seleccionar página"
         ></mat-paginator>
@@ -85,6 +92,6 @@
 
 
 <div class="no_results_found" *ngIf="ofertasLaborales && ofertasLaborales.length === 0">    
-    <img height="300px" src="assets/ilustration_2.png" alt="Sin resultados">
+    <img height="300px" [src]="'assets/ilustration_1.png'" alt="Sin resultados">
     <p>No encontramos resultados <br> Intenta con otros filtros</p>
 </div>

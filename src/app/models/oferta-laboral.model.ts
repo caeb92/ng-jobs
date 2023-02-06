@@ -1,6 +1,8 @@
+import { Beneficio } from "./beneficio.model";
 import { Categoria } from "./categoria.model";
 import { Comuna } from "./comuna.model";
 import { Empresa } from "./empresa.model";
+import { Modalidad } from "./modalidad.model";
 import { Region } from "./region.model";
 import { Tag } from "./tag.model";
 
@@ -17,4 +19,6 @@ export interface OfertaLaboral {
     comuna: Comuna;
     categoria: Categoria;
     tags: Tag[]
+    modalidades: Modalidad[];
+    beneficios: Beneficio[];
 }
