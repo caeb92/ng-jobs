@@ -1,145 +1,169 @@
-@use '@angular/material' as mat;
-@include mat.core();
-@import '~bootstrap/dist/css/bootstrap-grid.css';
+  @use '@angular/material' as mat;
+  @include mat.core();
+  @import '~bootstrap/dist/css/bootstrap-grid.css';
 
-$primary: (
-  100: rgb(1, 16, 32),
-  500: rgb(1, 16, 32),
-  700: rgb(1, 16, 32),
-  contrast: (
-    100: white,
-    500: white,
-    700: white,
-  )
-);
+  $primary: (
+    100: rgb(1, 16, 32),
+    500: rgb(1, 16, 32),
+    700: rgb(1, 16, 32),
+    contrast: (
+      100: white,
+      500: white,
+      700: white,
+    )
+  );
 
-$accent: (
-  100: rgb(0, 91, 248),
-  500: rgb(0, 91, 248),
-  700: rgb(0, 91, 248),
-  contrast: (
-    100: white,
-    500: white,
-    700: white,
-  )
-);
+  $accent: (
+    100: rgb(0, 91, 248),
+    500: rgb(0, 91, 248),
+    700: rgb(0, 91, 248),
+    contrast: (
+      100: white,
+      500: white,
+      700: white,
+    )
+  );
 
-$ng-jobs-primary: mat.define-palette($primary, 700);
-$ng-jobs-accent: mat.define-palette($accent, 700);
+  $ng-jobs-primary: mat.define-palette($primary, 700);
+  $ng-jobs-accent: mat.define-palette($accent, 700);
 
-$ng-jobs-warn: mat.define-palette(mat.$red-palette);
+  $ng-jobs-warn: mat.define-palette(mat.$red-palette);
 
-$ng-jobs-theme: mat.define-light-theme((
-  color: (
-    primary: $ng-jobs-primary,
-    accent: $ng-jobs-accent,
-    warn: $ng-jobs-warn,
-  ),
-  typography: mat.define-typography-config(
-    $font-family: 'Poppins',
-  ),
-  density: 0,
-));
+  $ng-jobs-theme: mat.define-light-theme((
+    color: (
+      primary: $ng-jobs-primary,
+      accent: $ng-jobs-accent,
+      warn: $ng-jobs-warn,
+    ),
+    typography: mat.define-typography-config(
+      $font-family: 'Poppins',
+    ),
+    density: 0,
+  ));
 
 
-@include mat.all-component-themes($ng-jobs-theme);
+  @include mat.all-component-themes($ng-jobs-theme);
 
-html, body { height: 100%; }
-body {
-  margin: 0px;
-  font-family: 'Poppins', sans-serif !important;
-  background-color: #f5f3f4;
-}
-
-// FIX BOOTSTRAP GRID
-  html {
-    box-sizing: border-box;
-    -ms-overflow-style: scrollbar;
+  html, body { height: 100%; }
+  body {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif !important;
+    background-color: #f5f3f4;
   }
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-// FIX BOOTSTRAP GRID
 
-.app_logo {
-  color: #005BF8;
-  font-weight: 500;
-  font-size: 1.4em;  
-}
-.app_titles {
-  color: #005BF8;
-  font-weight: 400;
-}
-.app_text_info {
-  color: #263238;
-  font-size: 0.9em;
-  margin: 0px;
-}
-.icon_fix {
-  vertical-align: middle !important;
-}
-.fw {
-  width: 100%;
-}
-.center {
-  text-align: center;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.spacer {
-  flex: 1 1 auto;
-}
-.rla {
-  color: #222 !important;
-  font-weight: 500 !important;
-}
-.hover:hover {
-  background-color: #E3F2FD;
-}
-.ml_1 {
-  margin-left: 8px !important;
-}
-.ml_2 {
-  margin-left: 16px !important;
-}
-.mr_1 {
-  margin-right: 8px !important;
-}
-.mr_2 {
-  margin-right: 16px !important;
-}
-.mr_3 {
-  margin-right: 24px !important;
-}
-.mb_1 {
-  margin-bottom: 16px !important;
-}
-.mb_2 {
-  margin-bottom: 32px !important;
-}
-.mb_3 {
-  margin-bottom: 64px !important;
-}
-.mb_4 {
-  margin-bottom: 128px !important;
-}
-.icon_spin {
-  animation: spin 2s linear infinite;
-}
-.icon_spin_color_processing {
-  color: #1565C0 !important;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.no_results_found {
-  margin-top: 32px;
-  text-align: center;
-  p {
-    font-size: 1.4em;
+  // FIX BOOTSTRAP GRID
+    html {
+      box-sizing: border-box;
+      -ms-overflow-style: scrollbar;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  // FIX BOOTSTRAP GRID
+
+  .app_logo {
+    color: #005BF8;
+    font-weight: 500;
+    font-size: 1.4em;  
+  }
+  .app_titles {
+    color: #005BF8;
+    font-weight: 400;
+  }
+  .app_section_title {
+    font-size: 1.2em;
     font-weight: 300;
   }
-}
+  .app_text_info {
+    color: #757575;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0px 0px 4px 0px;
+
+    mat-icon {
+      height: 18px;
+      width: 18px;
+      font-size: 18px;
+      vertical-align: middle !important;
+    }
+  }
+  .icon_fix {
+    vertical-align: middle !important;
+  }
+  .fw {
+    width: 100%;
+  }
+  .center {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .rla {
+    color: #222 !important;
+    font-weight: 500 !important;
+  }
+  .hover:hover {
+    background-color: #E3F2FD;
+  }
+  .ml_1 {
+    margin-left: 8px !important;
+  }
+  .ml_2 {
+    margin-left: 16px !important;
+  }
+  .mr_1 {
+    margin-right: 8px !important;
+  }
+  .mr_2 {
+    margin-right: 16px !important;
+  }
+  .mr_3 {
+    margin-right: 24px !important;
+  }
+  .mb_1 {
+    margin-bottom: 16px !important;
+  }
+  .mb_2 {
+    margin-bottom: 32px !important;
+  }
+  .mb_3 {
+    margin-bottom: 64px !important;
+  }
+  .mb_4 {
+    margin-bottom: 128px !important;
+  }
+  .icon_spin {
+    animation: spin 2s linear infinite;
+  }
+  .icon_spin_color_processing {
+    color: #1565C0 !important;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .no_results_found {
+    margin-top: 32px;
+    text-align: center;
+    p {
+      font-size: 1.4em;
+      font-weight: 300;
+    }
+  }
+  .user_short_info {
+    border-radius: 52px;
+    height: 52px;
+    width: 52px;
+    vertical-align: middle;
+    background-color: #E4EEF4;
+    color: #085A81;
+    text-align: center;
+    line-height: 52px;
+    margin-right: 16px;
+    font-size: 1.1em;
+  }

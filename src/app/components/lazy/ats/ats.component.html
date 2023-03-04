@@ -1,51 +1,130 @@
-<div class="ats_header_resume row" *ngIf="ofertaLaboral">
-    <div class="col-2 center">
-        <img [src]="ofertaLaboral.empresa.logo">
-    </div>
-
-    <div class="col-10">
-        <p class="title">{{ofertaLaboral.titulo | titlecase}}</p>
-        <p class="app_text_info">
-            <mat-icon>place</mat-icon>
-            {{ofertaLaboral.region.nombre | titlecase}}, {{ofertaLaboral.comuna.nombre | titlecase}}
-        </p>    
-        <p class="app_text_info">
-            <mat-icon>payments</mat-icon>
-            ${{ofertaLaboral.sueldoMin}} - ${{ofertaLaboral.sueldoMax}}
-        </p>
+<div class="container-fluid">
+    <div class="ats_header_resume row" *ngIf="ofertaLaboral">
+        <div class="col-1 center">
+            <img [src]="ofertaLaboral.empresa.logo">
+        </div>
+    
+        <div class="col-11">
+            <p class="title">{{ofertaLaboral.titulo | titlecase}}</p>
+            <p class="app_text_info">
+                <mat-icon fontIcon="place"></mat-icon>
+                {{ofertaLaboral.region.nombre | titlecase}}, {{ofertaLaboral.comuna.nombre | titlecase}}
+            </p>
+            <p class="app_text_info">
+                <mat-icon fontIcon="payments"></mat-icon>
+                ${{ofertaLaboral.sueldoMin}} - ${{ofertaLaboral.sueldoMax}}
+            </p>
+        </div>
     </div>
 </div>
 
 <div class="ats_pick_list" cdkDropListGroup>
-    <div class="example-container">
-      <h2>To do</h2>
-  
-      <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-      </div>
-    </div>
-  
-    <div class="example-container">
-      <h2>Done</h2>
-  
-      <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-      </div>
-    </div>
+    <div class="pick_list_container">
+        <p class="app_section_title">Nuevos candidatos</p>
 
-    <div class="example-container">
-        <h2>Done</h2>
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="todo" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of todo" cdkDrag>
 
-        <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="example-container">
-        <h2>Done</h2>
+    <div class="pick_list_container">
+        <p class="app_section_title">Candidatos en vista</p>
 
-        <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of done" cdkDrag>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pick_list_container">
+        <p class="app_section_title">Entrevista agendada</p>
+
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of done" cdkDrag>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pick_list_container">
+        <p class="app_section_title">Entrevistados</p>
+
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of done" cdkDrag>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pick_list_container">
+        <p class="app_section_title">Reunión con RRHH</p>
+
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of done" cdkDrag>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pick_list_container">
+        <p class="app_section_title">Contratados</p>
+
+        <div class="pick_list_list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="pick_list_box" *ngFor="let item of done" cdkDrag>
+                <div class="user_short_info">
+                    <span>CE</span>
+                </div>
+
+                <div>
+                    <span>{{item}}</span> <br>
+                    <span style="font-size: 0.85em;">Monto $$$</span><br>
+                    <span style="font-size: 0.85em;">Region Comuna</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
