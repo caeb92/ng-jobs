@@ -1,0 +1,51 @@
+<div class="ats_header_resume row" *ngIf="ofertaLaboral">
+    <div class="col-2 center">
+        <img [src]="ofertaLaboral.empresa.logo">
+    </div>
+
+    <div class="col-10">
+        <p class="title">{{ofertaLaboral.titulo | titlecase}}</p>
+        <p>
+            <mat-icon>place</mat-icon>
+            {{ofertaLaboral.region.nombre | titlecase}}, {{ofertaLaboral.comuna.nombre | titlecase}}
+        </p>    
+        <p>
+            <mat-icon>payments</mat-icon>
+            ${{ofertaLaboral.sueldoMin}} - ${{ofertaLaboral.sueldoMax}}
+        </p>
+    </div>
+</div>
+
+<div class="ats_pick_list" cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Done</h2>
+
+        <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+
+    <div class="example-container">
+        <h2>Done</h2>
+
+        <div class="example-list" cdkDropList [cdkDropListData]="done" (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+        </div>
+    </div>
+</div>
