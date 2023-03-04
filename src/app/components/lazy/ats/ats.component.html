@@ -5,11 +5,11 @@
 
     <div class="col-10">
         <p class="title">{{ofertaLaboral.titulo | titlecase}}</p>
-        <p>
+        <p class="app_text_info">
             <mat-icon>place</mat-icon>
             {{ofertaLaboral.region.nombre | titlecase}}, {{ofertaLaboral.comuna.nombre | titlecase}}
         </p>    
-        <p>
+        <p class="app_text_info">
             <mat-icon>payments</mat-icon>
             ${{ofertaLaboral.sueldoMin}} - ${{ofertaLaboral.sueldoMax}}
         </p>
