@@ -7,6 +7,7 @@ const routes: Routes = [
   },
   { path: 'ofertas-laborales', loadChildren: () => import('./components/lazy/ofertas-laborales/ofertas-laborales.module').then(m => m.OfertasLaboralesModule) },
   { path: 'ats', loadChildren: () => import('./components/lazy/ats/ats.module').then(m => m.AtsModule) },
+  { path: 'postular-oferta', loadChildren: () => import('./components/lazy/postular-oferta/postular-oferta.module').then(m => m.PostularOfertaModule) },
   {
     path: '**', redirectTo: ''
   }
