@@ -7,3 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Ilustraciones](https://icons8.com/illustrations)
 [ATS para tomar ideas](https://www.manatal.com/features/applicant-tracking-system)
+
+## Update order
+
+- ng update @nguniversal/express-engine
+- ng update @angular/material
+- ng update @angular/cli
